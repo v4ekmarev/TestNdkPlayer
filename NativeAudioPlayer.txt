@@ -1,0 +1,33 @@
+public enum NativeAudioPlayerState
+{
+    IDLE     = 0,
+    CREATED  = 1,
+    PLAYING  = 2,
+    PAUSED   = 3,
+    ERROR    = 4
+}
+
+public enum NativeAudioPlayerError
+{
+    NO_ERRORS      = 0,
+    FILE_NOT_FOUND = 1,
+    INVALID_PARAMS = 2,
+    PLAYING_ERROR  = 3,
+    OUT_OF_BOUNDS  = 4,
+    UNKNOWN_ERROR  = 5
+}
+
+public class NativeAudioPlayer
+{
+    public native int create(String absolute_file_path);
+    public native int destroy();
+    public native int start();
+    //когда файл заканчивается вызывается pause, чтобы вызвать seekTo(0) и проиграть сначала
+    public native int pause();
+    public native int resume();
+    public native int seek(int position_ms /* 0-duration */);
+    public native int set_volume(int volume /* 0-100 */);
+    public native int get_position_ms();
+    public native int get_duration_ms();
+    public native int get_state();
+}
