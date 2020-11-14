@@ -32,6 +32,11 @@ android {
             jniLibs.srcDirs = ['src/main/jniLibs']
         }
     }
+    externalNativeBuild {
+        cmake {
+            path file('CMakeLists.txt')
+        }
+    }
 }
 
 dependencies {
