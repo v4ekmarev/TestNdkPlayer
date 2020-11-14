@@ -19,7 +19,10 @@ add_library( # Specifies the name of the library.
              # Provides a relative path to your source file(s).
              src/main/cpp/avplayer_jni.cpp
              src/main/cpp/src/Player.cpp
+             src/main/cpp/src/OpenSLPlayer.cpp
         )
+
+target_link_libraries(avplayer-lib OpenSLES)
 
 # Specifies a path to native header files.
 include_directories(src/main/cpp/include/)

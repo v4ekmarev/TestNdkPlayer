@@ -11,8 +11,6 @@ namespace avtools
 {
     class Player
     {
-        Player();
-
     public:
         enum class StateId
         {
@@ -22,7 +20,7 @@ namespace avtools
             Error
         };
 
-        static std::unique_ptr<Player> create(const std::string file_path, ErrorCode& error_code /* out */);
+        static std::unique_ptr<Player> create(std::string file_path, ErrorCode& error_code /* out */);
 
         virtual ~Player();
 
@@ -38,5 +36,8 @@ namespace avtools
         virtual ErrorCode set_position(PlaybackPosition position);
         virtual ErrorCode set_speed(PlaybackSpeed speed);
         virtual ErrorCode set_volume_level(VolumeLevel volume_level);
+
+    protected:
+        Player();
     };
 }
